@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAgent Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1>🤖 OpenAgent</h1>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/" class="nav-link active">Dashboard</a></li>
+            <li><a href="/plan" class="nav-link">Plan</a></li>
+            <li><a href="/notes" class="nav-link">Notes</a></li>
+            <li><a href="/decisions" class="nav-link">Decisions</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="header">
+            <h2>Dashboard</h2>
+            <button class="btn btn-danger" onclick="clearAll()">Clear All</button>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Status Card -->
+            <div class="card">
+                <h3>Current Status</h3>
+                <div id="status-content" class="loading">Loading...</div>
+            </div>
+
+            <!-- Progress Card -->
+            <div class="card">
+                <h3>Progress</h3>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span id="progress-text">0%</span>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="card">
+                <h3>Quick Stats</h3>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <span class="stat-value" id="notes-count">0</span>
+                        <span class="stat-label">Notes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="decisions-count">0</span>
+                        <span class="stat-label">Decisions</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="errors-count">0</span>
+                        <span class="stat-label">Errors</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Phase -->
+            <div class="card">
+                <h3>Current Phase</h3>
+                <div id="current-phase" class="loading">No active plan</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

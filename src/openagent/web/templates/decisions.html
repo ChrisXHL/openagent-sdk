@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAgent - Decisions</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1>🤖 OpenAgent</h1>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/" class="nav-link">Dashboard</a></li>
+            <li><a href="/plan" class="nav-link">Plan</a></li>
+            <li><a href="/notes" class="nav-link">Notes</a></li>
+            <li><a href="/decisions" class="nav-link active">Decisions</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="header">
+            <h2>Decisions</h2>
+            <button class="btn btn-primary" onclick="showAddDecisionModal()">Record Decision</button>
+        </header>
+
+        <div class="card">
+            <h3>All Decisions</h3>
+            <div id="decisions-list" class="loading">Loading...</div>
+        </div>
+    </main>
+
+    <!-- Add Decision Modal -->
+    <div id="add-decision-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Record Decision</h3>
+                <button class="modal-close" onclick="hideAddDecisionModal()">&times;</button>
+            </div>
+            <form onsubmit="addDecisionSubmit(event)">
+                <div class="form-group">
+                    <label for="decision-text">Decision</label>
+                    <input type="text" id="decision-text" placeholder="What did you decide?" required>
+                </div>
+                <div class="form-group">
+                    <label for="decision-rationale">Rationale</label>
+                    <textarea id="decision-rationale" placeholder="Why did you make this decision?" required></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn" onclick="hideAddDecisionModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Record Decision</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/decisions.js"></script>
+</body>
+</html>

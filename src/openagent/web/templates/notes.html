@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAgent - Notes</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1>🤖 OpenAgent</h1>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/" class="nav-link">Dashboard</a></li>
+            <li><a href="/plan" class="nav-link">Plan</a></li>
+            <li><a href="/notes" class="nav-link active">Notes</a></li>
+            <li><a href="/decisions" class="nav-link">Decisions</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="header">
+            <h2>Notes</h2>
+            <button class="btn btn-primary" onclick="showAddNoteModal()">Add Note</button>
+        </header>
+
+        <div class="card">
+            <h3>All Notes</h3>
+            <div id="notes-list" class="loading">Loading...</div>
+        </div>
+    </main>
+
+    <!-- Add Note Modal -->
+    <div id="add-note-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Note</h3>
+                <button class="modal-close" onclick="hideAddNoteModal()">&times;</button>
+            </div>
+            <form onsubmit="addNoteSubmit(event)">
+                <div class="form-group">
+                    <label for="note-content">Content</label>
+                    <textarea id="note-content" placeholder="Write your note..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="note-section">Section (optional)</label>
+                    <input type="text" id="note-section" placeholder="e.g., Design, Implementation">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn" onclick="hideAddNoteModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Note</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/notes.js"></script>
+</body>
+</html>

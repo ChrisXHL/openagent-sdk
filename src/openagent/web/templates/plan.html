@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAgent - Plan</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1>🤖 OpenAgent</h1>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/" class="nav-link">Dashboard</a></li>
+            <li><a href="/plan" class="nav-link active">Plan</a></li>
+            <li><a href="/notes" class="nav-link">Notes</a></li>
+            <li><a href="/decisions" class="nav-link">Decisions</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="header">
+            <h2>Task Plan</h2>
+            <button class="btn btn-primary" onclick="showCreatePlanModal()">New Plan</button>
+        </header>
+
+        <div class="card">
+            <h3>Current Plan</h3>
+            <div id="plan-content" class="loading">Loading...</div>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+            <h3>Plan Actions</h3>
+            <div id="plan-actions">
+                <p class="loading">No plan available</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Plan Modal -->
+    <div id="create-plan-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Plan</h3>
+                <button class="modal-close" onclick="hideCreatePlanModal()">&times;</button>
+            </div>
+            <form onsubmit="createPlanSubmit(event)">
+                <div class="form-group">
+                    <label for="plan-goal">Goal</label>
+                    <input type="text" id="plan-goal" placeholder="What do you want to accomplish?" required>
+                </div>
+                <div class="form-group">
+                    <label for="plan-phases">Phases (comma-separated)</label>
+                    <input type="text" id="plan-phases" placeholder="Design, Implement, Test, Deploy">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn" onclick="hideCreatePlanModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Plan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/plan.js"></script>
+</body>
+</html>
