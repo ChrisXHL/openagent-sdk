@@ -17,7 +17,12 @@ import json
 from pathlib import Path
 from typing import Any, Dict, Optional, Union
 
-from flask import Flask, Response, jsonify, render_template, request
+try:
+    from flask import Flask, Response, jsonify, render_template, request
+except ImportError:
+    raise ImportError(
+        "Flask is required for web UI. Install with: pip install flask"
+    )
 
 
 def create_app(
